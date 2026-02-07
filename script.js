@@ -1,23 +1,35 @@
 const no = document.getElementById("no");
 const yes = document.getElementById("yes");
+const card = document.querySelector(".card");
 
-// Move NO when cursor gets close
+// Move NO when cursor is anywhere near it (full button)
 document.addEventListener("mousemove", (e) => {
     const rect = no.getBoundingClientRect();
-    const dx = e.clientX - (rect.left + rect.width / 2);
-    const dy = e.clientY - (rect.top + rect.height / 2);
-    const distance = Math.sqrt(dx*dx + dy*dy);
+    
+    // Check if mouse is near the entire button (padding included)
+    if (
+        e.clientX > rect.left - 20 &&
+        e.clientX < rect.right + 20 &&
+        e.clientY > rect.top - 20 &&
+        e.clientY < rect.bottom + 20
+    ) {
+        const cardRect = card.getBoundingClientRect();
+        const maxX = cardRect.width - rect.width;
+        const maxY = cardRect.height - rect.height;
 
-    if (distance < 80) { // mouse too close
-        const moveX = Math.random() * 200 - 100; // random horizontal shift
-        const moveY = Math.random() * 50 - 25;   // random vertical shift
-        no.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        // Random position inside card
+        const moveX = Math.random() * maxX;
+        const moveY = Math.random() * maxY;
+
+        no.style.position = "absolute";
+        no.style.left = moveX + "px";
+        no.style.top = moveY + "px";
     }
 });
 
-// Confetti rain on YES
+// Confetti on YES
 yes.addEventListener("click", () => {
-    const end = Date.now() + 5000; // 5 seconds
+    const end = Date.now() + 5000;
 
     (function frame() {
         confetti({
