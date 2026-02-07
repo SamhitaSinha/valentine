@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.card {
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(12px);
+    padding: 50px;
+    border-radius: 20px;
+    text-align: center;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* horizontal space between buttons */
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 24px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+#yes {
+    background: hotpink;
+    color: white;
+}
+
+#no {
+    background: white;
+}
