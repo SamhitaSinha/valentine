@@ -20,6 +20,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 h1 {
@@ -30,7 +31,8 @@ h1 {
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 40px; /* horizontal space between buttons */
+    gap: 40px;
+    position: relative;
 }
 
 button {
@@ -45,8 +47,10 @@ button {
 #yes {
     background: hotpink;
     color: white;
+    z-index: 2;
 }
 
 #no {
     background: white;
+    position: relative; /* stays in layout but moves with JS */
 }
